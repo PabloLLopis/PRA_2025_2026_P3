@@ -92,15 +92,21 @@ public:
         return search(key);
     }
 
-    // Imprimir contenido de la tabla hash
+       // Imprimir 
     friend std::ostream& operator<<(std::ostream &out, const HashTable<V> &ht) {
-        out << "HashTable (" << ht.n << " entries):\n";
+        out << "HashTable [entries: " << ht.n
+            << ", capacity: " << ht.max << "]\n";
+        out << "==============\n\n";
+
         for (int i = 0; i < ht.max; i++) {
-            out << "[" << i << "]: ";
-            out << ht.table[i] << "\n";  // asume que ListLinked tiene <<
+            out << "== Cubeta " << i << " ==\n\n";
+            out << ht.table[i] << "\n";
         }
+
+        out << "==============\n";
         return out;
     }
+
 };
 
 #endif
